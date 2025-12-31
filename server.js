@@ -4,6 +4,7 @@ const socketIo = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
+app.use(express.static(__dirname));
 const io = socketIo(server);
 
 app.use(express.static('public'));
@@ -612,3 +613,4 @@ function getSortValue(rank) {
     return rank; 
 
 }
+
