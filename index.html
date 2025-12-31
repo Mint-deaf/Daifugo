@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>カスタム大富豪</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js" defer></script>
+</head>
+<body>
+    <div id="login-screen">
+        <h1>大富豪</h1>
+        <input type="text" id="username" placeholder="名前">
+        <button id="join-btn">参加</button>
+    </div>
+
+    <div id="lobby-screen" style="display:none;">
+        <h1>待合室</h1>
+        <div style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+            <h3>参加メンバー</h3>
+            <ul id="member-list" style="list-style: none; padding: 0; font-size: 18px; color: white;">
+                </ul>
+        </div>
+        <p>全員揃ったらスタートボタンを押してください</p>
+        <button id="start-btn" style="font-size: 20px; padding: 15px 30px;">ゲーム開始</button>
+    </div>
+
+    <div id="game-screen" style="display:none;">
+        <div id="info-bar">
+            <span id="turn-indicator"></span> | 
+            <span id="rev-indicator">通常状態</span>
+            <button id="history-btn" style="float:right; background:#3498db; color:white;">捨て札を見る</button>
+        </div>
+        
+        <div id="field">
+            <h3>場</h3>
+            <div id="field-cards"></div>
+        </div>
+
+        <div id="opponents"></div>
+
+        <div id="my-area">
+            <div id="my-hand"></div>
+            <div class="controls">
+                <input type="number" id="declare-num" placeholder="12使用時の数字" min="1" max="13" style="width: 50px;">
+                <button id="play-btn">出す</button>
+                <button id="pass-btn">パス</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="history-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span id="close-history" class="close">&times;</span>
+            <h2>捨てられたカード一覧</h2>
+            <div id="discard-list"></div>
+        </div>
+    </div>
+
+    <div id="revolution-overlay">
+        <div class="rev-text">⚡ 革命 ⚡</div>
+        <div class="rev-subtext">強さが反転した！</div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+
+<div id="result-modal" class="modal" style="display:none; z-index: 3000; background: rgba(0,0,0,0.95);">
+        <div class="modal-content" style="background: transparent; border: none; width: 100%; max-width: 500px;">
+            <h1 class="result-title">GAME SET</h1>
+            <div id="result-list" class="result-container">
+                </div>
+            <button id="back-to-lobby-btn" class="game-btn yes" style="margin-top: 30px;">ロビーに戻る</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+
+<div id="number-select-modal" class="modal" style="display:none; z-index: 2500;">
+    <div class="modal-content" style="text-align: center; border: 2px solid #e056fd;">
+        <h2 style="color: #e056fd;">👸 捨てる数字を命令してください</h2>
+        <div id="number-buttons" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px;">
+            </div>
+    </div>
+</div>
+</body>
+
+</html>
+
+</div>
+
+    <div id="confirm-modal" class="modal" style="display:none; z-index: 2000;">
+        <div class="modal-content confirm-content" style="text-align: center; background: rgba(0,0,0,0.9); border: 2px solid #ffd700;">
+            <h2 style="color: #ffd700;">このカードを拾いますか？</h2>
+            
+            <div id="confirm-card-preview" style="margin: 30px auto; display: flex; justify-content: center; transform: scale(1.5);"></div>
+            
+            <div style="margin-top: 30px;">
+                <button id="confirm-yes-btn" class="game-btn yes">はい、拾います</button>
+                <button id="confirm-no-btn" class="game-btn no">いいえ、やめます</button>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+
+</html>
