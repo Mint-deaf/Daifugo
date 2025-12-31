@@ -580,8 +580,11 @@ io.on('connection', (socket) => {
 
 });    
 
+// process.env.PORT が重要です！
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 // ★★★ 階級割り当て関数 ★★★
 function assignRanks() {
@@ -607,4 +610,5 @@ function getSortValue(rank) {
     if (rank === 1) return 14; 
     if (rank === 2) return 15; 
     return rank; 
+
 }
